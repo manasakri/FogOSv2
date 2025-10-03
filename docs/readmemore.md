@@ -79,12 +79,15 @@ more --help
 4. User presses `<Enter>` to see next line
 5. User presses `q + <Enter>` to quit
 
+```
+
 ## Error Messages
 
 - `Usage: more <filename>` - Incorrect number of arguments
 - `Try 'more --help' for more information.` - Suggestion for help
 - `more: cannot open <filename>` - File not found or permission denied
 - `Unknown command. Available commands:` - Invalid navigation command
+
 
 ## Limitations
 
