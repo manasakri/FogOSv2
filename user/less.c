@@ -109,19 +109,35 @@ void less(int fd) {
         if (cmd == 'q') break;
 
         // space = go to the next page
-        else if (cmd == ' ') current += LINES_PER_PAGE;
+        else if (cmd == ' ') {
+            current += LINES_PER_PAGE;
+            char dummy;
+            read(0, &dummy, 1);
+        }
 
 		// enter = next line         
         else if (cmd == '\n') current++;
 
         // b = go back to the previous page 
-        else if (cmd == 'b') current -= LINES_PER_PAGE;
+        else if (cmd == 'b') {
+            current -= LINES_PER_PAGE;
+            char dummy;
+            read(0, &dummy, 1);
+        }
 
 		// Go to the beginning/top of the file 
-        else if (cmd == 'g') current = 0;
+        else if (cmd == 'g') {
+            current = 0;
+            char dummy;
+            read(0, &dummy, 1);
+        }
 
         // Go to the bottom of the file
-        else if (cmd == 'G') current = total_lines - LINES_PER_PAGE;
+        else if (cmd == 'G') {
+            current = total_lines - LINES_PER_PAGE;
+            char dummy;
+            read(0, &dummy, 1);
+        }
 
         // up arrow = Go up on the screen
         else if (cmd == 'U') current--;        
