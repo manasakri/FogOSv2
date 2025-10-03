@@ -69,17 +69,17 @@ struct {
 
 
 # Show help
+```
 more --help
 ```
 
-### Interactive Navigation
+## Interactive Navigation
 1. File opens showing first 24 lines
 2. User sees `--More--` prompt
 3. User presses `<Space> + <Enter>` to see next page
 4. User presses `<Enter>` to see next line
 5. User presses `q + <Enter>` to quit
 
-```
 
 ## Error Messages
 
