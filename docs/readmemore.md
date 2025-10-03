@@ -67,7 +67,6 @@ struct {
 - Checks file open status
 - Provides clear error messages for invalid usage
 
-## Examples
 
 # Show help
 more --help
