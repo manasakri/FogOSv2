@@ -97,5 +97,8 @@ more --help
 - No line numbering
 - Limited to single file display
 
+### Implementation Reference
+
+See `user/more.c` for the implementation details.
 
 
