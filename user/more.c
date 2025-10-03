@@ -149,9 +149,9 @@ int main(int argc, char *argv[]) {
     	exit(0);
     }
     
-    int file;
+    int file = open(argv[1], O_RDONLY);
     
-    if ((file = open(argv[1], O_RDONLY)) < 0) {
+    if (file < 0) {
         printf("more: cannot open %s\n", argv[1]);
         exit(1);
     }
