@@ -127,6 +127,9 @@ void less(int fd) {
         else if (cmd == 'U') current--;        
         else if (cmd == 'D') current++;        
 
+		 else if (cmd != 0) {
+		 printf("Unknown command. Available commands: Space, Enter, b, g, G, Up, Down, q\n");
+		 }
 		// Prevents program from going outside of the given file, or from the
 		// user scrolling past the end/before the start of the file
         if (current < 0) current = 0;
@@ -143,12 +146,30 @@ void less(int fd) {
 int main(int argc, char *argv[]) {
     if (argc != 2) {
         printf("Usage: less <file>\n");
+        printf("Try 'less --help' for more information.\n");
+
         exit(1);
     }
 
+        if (strcmp(argv[1], "--help") == 0) {
+        printf("Usage: less <filename>\n\n");
+        printf("Interactive Navigation:\n");
+        printf("  <Space> : Next page\n");
+        printf("  <Enter> : Next line\n");
+        printf("  b       : Previous page\n");
+        printf("  g       : Go to beginning\n");
+        printf("  G       : Go to end\n");
+        printf("  Up/Down : Scroll up or down one line\n");
+        printf("  q       : Quit\n\n");
+        printf("Shows --Less-- prompt when waiting for user input.\n");
+        exit(0);
+    }
+
+
     int fd = open(argv[1], O_RDONLY);
     if (fd < 0) {
-        printf("Cannot open file %s\n", argv[1]);
+        printf("less: cannot open %s\n", argv[1]);
+        printf("Try 'less --help' for more information.\n");
         exit(1);
     }
 
