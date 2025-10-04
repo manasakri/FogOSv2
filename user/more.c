@@ -63,7 +63,6 @@ int read_line(int file, char *buffer, int max_len) {
  */
 void User_command(void) {
     char key;
-
     // Start read from keyboard, variable's address, 1 byte for char
     read(0, &key, 1); 
     
@@ -89,8 +88,11 @@ void User_command(void) {
             read(0, &key, 1);
             break;
         default:        // Any other key - help
-            // Throw away the Enter that follows
-            read(0, &key, 1);
+		    // Read the rest of the line to consume all input at once
+		    char temp;
+		    while (read(0, &temp, 1) > 0 && temp != '\n') {
+		        // Skip to the end of the current line
+		    }
             printf("\n");
             printf("Unknown command. Available commands:\n\n");
             print_help();
@@ -98,9 +100,8 @@ void User_command(void) {
             // Recursively wait for next command after help
              User_command();
             break;
-    }
+	}
 }
-
 /**
  *  more function
  */
